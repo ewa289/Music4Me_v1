@@ -3,19 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.API", "Music4Me.API\Music4Me.API.csproj", "{EAAB5575-01BE-45C5-9DC6-6D72539DEE49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.API", "Music4Me.API\Music4Me.API.csproj", "{EAAB5575-01BE-45C5-9DC6-6D72539DEE49}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2B64DFC8-F85E-4262-9B93-79E99A31AFC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.Common", "Music4Me.Common\Music4Me.Common.csproj", "{560B4A82-AD22-431F-9233-AD2CE00C0519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.Common", "Music4Me.Common\Music4Me.Common.csproj", "{560B4A82-AD22-431F-9233-AD2CE00C0519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.Client", "Music4Me.Client\Music4Me.Client.csproj", "{72843FCD-427A-4310-BD67-AD0B727A410B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.Client", "Music4Me.Client\Music4Me.Client.csproj", "{72843FCD-427A-4310-BD67-AD0B727A410B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.Common.Infrastructure.Spotify", "Music4Me.Common.Infrastructure.Spotify\Music4Me.Common.Infrastructure.Spotify.csproj", "{2F6244D6-168E-4791-A7DB-D037BB73F083}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.Common.Infrastructure.Spotify", "Music4Me.Common.Infrastructure.Spotify\Music4Me.Common.Infrastructure.Spotify.csproj", "{2F6244D6-168E-4791-A7DB-D037BB73F083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.Application", "Music4Me.Application\Music4Me.Application.csproj", "{EF09FC3E-64F8-46C9-AAAA-29AFDCE69B24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.Application", "Music4Me.Application\Music4Me.Application.csproj", "{EF09FC3E-64F8-46C9-AAAA-29AFDCE69B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music4Me.UI.Web", "Music4Me.UI.Web\Music4Me.UI.Web.csproj", "{CA607214-1FDC-4EFA-A6CB-348644C58994}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Music4Me.UI.Web", "Music4Me.UI.Web\Music4Me.UI.Web.csproj", "{CA607214-1FDC-4EFA-A6CB-348644C58994}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BA6EEA03-615A-4C9E-B146-97F912959935}"
+	ProjectSection(SolutionItems) = preProject
+		För att köra igång och testa projeket.txt = För att köra igång och testa projeket.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

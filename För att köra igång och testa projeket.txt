@@ -1,0 +1,6 @@
+1. Öppna solutionfilen Music4Me_v1.sln i visual studio
+2. Välj projeket Music4Me.API som startprojekt
+3. Starta api:et genom att starta det utan debug (Ctrl+F5) 
+   Api:et borde nu ha startats upp i en webbläsare
+4. Välj nu projeket Music4Me.UI.Web
+5. Kör igång (F5)
