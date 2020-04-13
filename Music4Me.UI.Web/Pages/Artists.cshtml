@@ -1,0 +1,61 @@
+﻿@page
+@model Music4Me.UI.Web.Pages.ArtistsModel
+@{
+    ViewData["Title"] = "Artists";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage)) {
+    <div class="text-danger">@Model.ErrorMessage</div>
+} else {
+    <h1>Vald kategori: @Model.CategoryName</h1>
+    <p>Välj de artister som du tycker om nedan.</p>
+
+    <form method="post" id="artistsForm" asp-page="Recommendations" asp-page-handler="GetRecommendations">
+        <input name="SelectionBase" type="hidden" value="@string.Join(",", @Model.Artists.Select(a => a.Id))" />
+
+        <div id="errorMessage" class="errorMessage" style="display:none"></div>
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Artist</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var artist in Model.Artists) {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="SelectedArtists" value="@artist.Id" />
+                                @artist.Name
+                            </td>
+                            <td> <a href="@artist.ExternalUrls["spotify"]">Öppna i spotify</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary">Hämta rekommendationer</button>
+
+        @section scripts{
+            <script>
+                $(document).ready(function () {
+                    $('#artistsForm').submit(function (event) {
+                        if ($("input[name='SelectedArtists']:checked").length < 1) {
+                            $('#errorMessage').html("Du måste välja minst en artist innan du kan hämta rekommendationer!");
+                            $('#errorMessage').show();
+                            window.scrollTo(0, 0);
+
+                            // Disable the form submit.
+                            event.preventDefault();
+                        } else {
+                            $('#errorMessage').hide();
+                        }
+                    });
+                });
+
+            </script>
+        }
+    </form>
+}

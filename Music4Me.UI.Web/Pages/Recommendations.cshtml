@@ -1,0 +1,77 @@
+﻿@page
+@model Music4Me.UI.Web.Pages.RecommendationsModel
+@using Music4Me.Client.Resources
+
+@{
+    ViewData["Title"] = "Recommendations";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Rekommendationer</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage)) {
+    <div class="text-danger">@Model.ErrorMessage</div>
+} else {
+    <div class="panel panel-default">
+        <table>
+            @{
+                var totalRecommendations = Model.Recommendations.Count();
+                var noOfColumns = 4;
+                var noOfRows = totalRecommendations / noOfColumns;
+                var index = 0;
+
+                string GetArtistImageUrl(IList<Image> images)
+                {
+                    if (images != null && images.Any()) {
+                        return images.OrderByDescending(i => i.Width).First().Url;
+                    }
+                    return string.Empty;
+                }
+                @if (totalRecommendations < noOfColumns) {
+                    <tr>
+                        @foreach (var artist in Model.Recommendations) {
+                            var imageUrl = GetArtistImageUrl(artist.Images);
+                            <td>
+                                <a href="@artist.ExternalUrls["spotify"]" title="Öppna i Spotify" target="_blank">
+                                    <img src="@imageUrl" class="artistImage" />
+                                </a>
+                                <div class="imageText">@artist.Name</div>
+                            </td>
+                        }
+                    </tr>
+                } else {
+
+                    @for (int i = 0; i < noOfRows; i++) {
+                        <tr>
+                            @for (int y = 0; y < noOfColumns; y++) {
+                                var imageUrl = GetArtistImageUrl(Model.Recommendations[index].Images);
+                                <td>
+                                    <a href="@Model.Recommendations[index].ExternalUrls["spotify"]" title="Öppna i Spotify" target="_blank">
+                                        <img src="@imageUrl" class="artistImage" />
+                                    </a>
+                                    <div class="imageText">@Model.Recommendations[index].Name</div>
+                                </td>
+                                index = index + 1;
+                            }
+                        </tr>
+                    }
+
+                    // Print the rest
+                    @if (index < totalRecommendations) {
+                        <tr>
+                            @for (int j = index; j < totalRecommendations; j++) {
+                                var imageUrl = GetArtistImageUrl(Model.Recommendations[j].Images);
+                                <td>
+                                    <a href="@Model.Recommendations[j].ExternalUrls["spotify"]" title="Öppna i Spotify" target="_blank">
+                                        <img src="@imageUrl" class="artistImage" />
+                                    </a>
+                                    <div class="imageText">@Model.Recommendations[j].Name</div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                }
+            }
+        </table>
+        </div>
+}
